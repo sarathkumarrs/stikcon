@@ -1,0 +1,686 @@
+<html><head><script async src="js/inject-v2.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Stikcon |  AI for Construction and Consulting</title>
+    
+    
+
+    <meta name="description" content>
+    <meta name="keywords" content>
+    <meta property="og:title" content>
+    <meta property="og:image" content="images/android-icon-192x192.png">
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/slick.css">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="css/slick-theme.scss" /> -->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/hamburger.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/videoplayer.css" \>
+    <link rel="stylesheet" href="css/sweet-alert.css" type="text/css">
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="/static/web/fonts/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/static/web/fonts/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+<!-- payment modal  -->
+<div id="modalSection" class="loginModal">
+    <div class="container">
+        <span class="close">X</span>
+        <div class="modal-box">
+            <div class="left right-image-modal" style="background-image: url(images/paymentBack.png );background-repeat: no-repeat;background-position: left; background-size: cover;">
+                
+            </div>
+            <div class="right">
+                <h1>
+                    <a href="/"><img src="fonts/logo_header.svg" alt="Icon"></a>
+                </h1>
+                <div class="mainContentContainer">
+                    
+                    <div class="LoginPhone">
+                        <div class="title-box">
+                            <h4>Sign Up</h4>
+                            <p>Create an account to get started.</p>
+                        </div>
+                        <div class="globalInput"><input type="number" placeholder="Enter your phone number" id="signp_phone" pattern="/^-?\d+\.?\d*$/" onkeypress="if(this.value.length==10) return false;">
+                        </div>
+                        <div class="ErrorHandler">
+                            <h6 class="error" style="display: none; color: red; font-size: 14px;"></h6>
+                        </div>
+                        <a class="button gradientClass sb-btn-1" data-url="/otp-generation/">SUBMIT</a>
+                        <div class="AlertContainer">
+                            <span class="AlertContainer-sub">Already have an account ?</span> <a class="loging-button-s1 blueColor">Login</a>
+                        </div>
+                    </div>
+                    
+                    <div class="LoginOTP">
+                        <div class="title-box">
+                            <h4>Verify with OTP</h4>
+                            <p id="p_send_to">Send to +91 <span class="number"> (phone number)<span></span></span></p>
+                        </div>
+                        <form action class="mt-5">
+                            <div>
+                                <input class="otp inputOtp" type="text" id="otp_one" maxlength="1">
+                                <input class="otp inputOtp" type="text" id="otp_two" maxlength="1">
+                                <input class="otp inputOtp" type="text" id="otp_three" maxlength="1">
+                                <input class="otp inputOtp" type="text" id="otp_four" maxlength="1">
+                            </div>
+                            <div class="forgotSection">
+                                <h6 class="error" style="display: none; color: red; font-size: 14px;"></h6>
+                                <a class="resend" style="color:#0888DE; font-size:14px;" data-url="/otp-generation/">Resend OTP?</a>
+                                <h6 class="success" style="display: none; color: green; font-size: 14px;"></h6>
+                            </div>
+                        </form>
+                        <a class="button gradientClass sb-btn-2 " data-email data-url="/otp-verification/">SUBMIT</a>
+                    </div>
+                    
+                    <div class="LoginPhone2">
+                        <div class="title-box">
+                            <h4>Sign Up</h4>
+                            <p>You're only one more step away.</p>
+                        </div>
+                        <form>
+                            <input type="hidden" id="s_phone" name="phone">
+                            <div class="globalInput mrb"><input type="text" placeholder="Full Name" id="s_name"></div>
+                            <div class="globalInput mrb"><input type="email" placeholder="Enter Email" id="s_email"></div>
+                            <div class="globalInput mrb showHideMain"><input type="password" class="showHide password-field" placeholder="Password" id="s_password"><img toggle=".password-field" class="eyes eyesClosed" src="fonts/eyes.svg" alt="Icon"><img toggle=".password-field" class="eyes eyeOpen" src="fonts/eyeOpen.svg" alt="Icon"></div>
+                            <div class="globalInput mrb"><input type="password" placeholder="Confirm Password" id="s_cpassword"></div>
+                            <input type="submit" class="button globalInput mrb gradientClass sb-btn-3" data-url="/customer-signup/" value="SUBMIT" maxlength="10">
+                            <div class="ErrorHandler">
+                                <h6 class="login-error" style="display: none; color: red; font-size: 14px;"></h6>
+                            </div>
+                        </form>
+                        
+                    </div>
+                    
+                    <div class="LoginMain">
+                        <div class="title-box">
+                            <h4>Sign In</h4>
+                            <p>Hello! Welcome back.</p>
+                        </div>
+                        <form>
+                            <div class="globalInput"><input type="number" placeholder="Enter your phone number" id="login-phone" pattern="/^-?\d+\.?\d*$/" onkeypress="if(this.value.length==10) return false;"></div>
+                            <div class="globalInput mrb showHideMain"><input type="password" class="showHide password-field" placeholder="Password" id="login-password"><img toggle=".password-field" class="eyes eyesClosed" src="fonts/eyes.svg" alt="Icon"><img toggle=".password-field" class="eyes eyeOpen" src="fonts/eyeOpen.svg" alt="Icon"></div>
+                            <div class="ErrorHandler">
+                                <h6 class="login-error" style="display: none; color: red; font-size: 14px;"></h6>
+                            </div>
+                            <div class="forgotSection">
+                                <h6 class="forgot-Password">Forgot Password?</h6>
+                            </div>
+                            <a class="button gradientClass sb-btn-4" id="customer_login" data-url="/customer-signin/">SUBMIT</a>
+                        </form>
+                        <div class="AlertContainer noPosition">
+                            <span class="AlertContainer-sub">Don’t have an account?</span> <a class="signup-button-s2 blueColor">Register here</a>
+                        </div>
+                            <!-- <span>don’t have an account? </span><a class="signup-button-s2">Register here</a> -->
+                    </div>
+                    
+                    <div class="ForgotPassword">
+                        <div class="title-box">
+                            <h4>Forgot Password</h4>
+                            <p>please enter your registered number</p>
+                        </div>
+                        <div class="globalInput"><input type="number" class="f_password_m_number" placeholder="Enter your phone number" pattern="/^-?\d+\.?\d*$/" onkeypress="if(this.value.length==10) return false;"></div>
+                        <div class="ErrorHandler">
+                            <h6 class="login-error fp_error" style="display: none; color: red; font-size: 14px;"></h6>
+                        </div>
+                        <a class="button gradientClass sb-btn-5" data-url="/otp-generation-and-checking/">SUBMIT</a>
+                    </div>
+                    
+                    <div class="PasswordReset PasswordReset1">
+                        <div class="title-box">
+                            <h4>Reset Password</h4>
+                            <p>Reset Your password</p>
+                        </div>
+                        <form>
+                            <input type="hidden" id="phone-hidden-field">
+                            <div class="globalInput mrb showHideMain"><input type="password" id="r_password" class="showHide password-field" placeholder="Password"><img toggle=".password-field" class="eyes eyesClosed" src="fonts/eyes.svg" alt="Icon"><img toggle=".password-field" class="eyes eyeOpen" src="fonts/eyeOpen.svg" alt="Icon"></div>
+                            <div class="globalInput mrb"><input type="password" id="cr_password" placeholder="Confirm Password"></div>
+                            <div class="ErrorHandler">
+                                <h6 class="login-error rp_error" style="display: none; color: red; font-size: 14px;"></h6>
+                            </div>
+                        </form>
+                        <a class="button gradientClass sb-btn-6" data-url="/forgot-password/">SUBMIT</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal ends  -->
+
+<!-- payment successful modal  -->
+<div id="modalSection" class="status-modal">
+    <div class="container">
+        <span class="close">X</span>
+        <div class="modal-box">
+            <div class="image-box">
+                <img class="status_modal_image" src="images/paymentSuccess.png" alt="icon">
+            </div>
+            <h4 class="status_modal_title">Successful !</h4>
+            <p class="status_modal_message"></p>
+            <a class="button gradientClass closeSuccess">OKAY</a>
+        </div>
+    </div>
+</div>
+<!-- payment successful modal ends  -->
+
+
+<!-- Email change modal  -->
+<div id="modalSection" class="email-change modal sameModal">
+    <div class="container">
+        <span class="close">X</span>
+        <div class="modal-box">
+            <div class="changeMail">
+                <div class="title-box">
+                    <h4>Add New Email</h4>
+                    <p>Enter new Email.</p>
+                </div>
+                <form>
+                    <div class="globalInput"><input type="email" placeholder="Email ID" id="new_email"></div>
+                    <h6 class="login-error" style="display: none; color: red; font-size: 14px;">div></h6>
+                    <a class="button gradientClass " id="change_mail" data-url="/change-email/">SUBMIT</a>
+                </form>
+            </div>                       
+        </div>
+    </div>
+</div>
+<!-- Email change modal ends  -->
+
+<!-- address change modal  -->
+<div id="modalSection" class="address-change modal sameModal">
+    <div class="container">
+        <span class="close">X</span>
+        <div class="modal-box">
+            <div class="changeMail">
+                <div class="title-box">
+                    <h4>Edit Address</h4>
+                    <p>Add Your new address</p>
+                </div>
+                <form>
+                    <div class="globalInput"><textarea rows="3" class="edit_address" placeholder="Address"></textarea></div>
+                    <h6 class="login-error" id="address_m_error" style="display: none; color: red; font-size: 14px;"></h6>
+                    <a class="button gradientClass eas_button" id data-url="/change-address/">SUBMIT</a>
+                </form>
+            </div>                       
+        </div>
+    </div>
+</div>
+<!-- address change modal ends  -->
+
+<!-- password change modal  -->
+<div id="modalSection" class="password-reset modal sameModal">
+    <div class="container">
+        <span class="close">X</span>
+        <div class="modal-box">
+            <div class="changeMail">
+                <div class="title-box">
+                    <h4>Change Password</h4>
+                    
+                </div>
+                <form>
+                    
+                        <div class="globalInput mrb showHideMain"><input type="password" id="change-pass-c-pass" data-url="/check-current-password/" class="showHide password-field" placeholder="Current Password"><img toggle=".password-field" class="eyes eyesClosed" src="fonts/eyes.svg" alt="Icon"><img toggle=".password-field" class="eyes eyeOpen" src="fonts/eyeOpen.svg" alt="Icon"></div>
+                        <div class="ErrorHandler">
+                            <h6 class="login-error" id="c_pass_error" style="display: none; color: red; font-size: 14px;"></h6>
+                        </div>
+                        <div class="forgotSection">
+                            <h6 id="pro_forgot_pass">Forgot Password?</h6>
+                        </div>
+                        <div class="globalInput mrb showHideMain"><input type="password" id="password" class="showHide password-field" placeholder="Password"><img toggle=".password-field" class="eyes eyesClosed" src="fonts/eyes.svg" alt="Icon"><img toggle=".password-field" class="eyes eyeOpen" src="fonts/eyeOpen.svg" alt="Icon"></div>
+                        <div class="globalInput mrb showHideMain"><input type="password" id="confirm_password" placeholder="Confirm Password" class="showHide password-field"></div>
+                        <div class="ErrorHandler">
+                            <h6 class="login-error" id="passwords_error" style="display: none; color: red; font-size: 14px;"></h6>
+                        </div>
+                        <a class="button gradientClass " id="change-password-btn" data-url="/change-password/">SUBMIT</a>
+                    </form>
+                    <h6 class="login-error" style="display: none; color: red; font-size: 14px;">div></h6>
+                
+            </div>                       
+        </div>
+    </div>
+</div>
+<!-- address change modal ends  -->
+
+<!-- apply indian and outsider modal  -->
+
+
+<!-- apply indian and outsider ends  -->
+
+
+<!-- header section  -->
+<div class="dropDownOverlay">
+</div>
+<header>
+    <div class="wrapper">
+        <div class="container">
+            <h1>
+                <a href="/"><img src="fonts/logo_header.svg" alt="Icon"></a>
+            </h1>
+            <!-- nav menu  -->
+            <nav class="navbar-main">
+                <ul>
+                    <li class=" active "><a href="/">HOME</a></li>
+                    <li class><a href="/about-page/">ABOUT US</a></li>
+                    <li class><a href="/services-page/">SERVICES</a></li>
+                    <li class><a href="/blog-page/">BLOGS</a></li>
+                    <li class><a href="/careers/">CAREER</a></li>
+                    <li class><a href="/courses/">COURSES</a></li>
+                    <li class><a href="/contact-page/">CONTACT US</a></li>
+                </ul>
+            </nav>
+            <!-- nav menu ends  -->
+            <div class="contactLogin">
+                
+                <a class="headerContact" href="tel:+91 8589998952">
+
+                    <div class="image-box">
+                        <img src="fonts/bx_bxs-phone-call.svg" alt="Icon">
+                    </div>
+                    +91 8589998952
+                </a>
+                
+                   
+                <a class="button gradientClass loginButton">LOGIN</a>
+                
+            <!-- mobile menu  -->
+                <div class="mobile-menu">
+                    <nav class="navbar-mobile">
+                        <input type="checkbox" name="toggle-nav">
+                        <label for="toggle-nav">
+                            <span class="menu-icon"></span>
+                        </label>
+                        <section class="side-nav-panel">
+                            <ul>
+                                <li><a href="/">HOME</a></li>
+                                <li><a href="/about-page/">ABOUT US</a></li>
+                                <li><a href="/services-page/">SERVICES</a></li>
+                                <li><a href="/blog-page/">BLOGS</a></li>
+                                <li><a href="/careers/">CAREER</a></li>
+                                <li><a href="/courses/">COURSES</a></li>
+                                <li><a href="/contact-page/">CONTACT US</a></li>
+                            </ul>
+                        </section>
+                    </nav>
+                </div>
+            </div>
+            <!-- mobie-menu ends  -->
+        </div>
+    </div>
+</header>
+<!-- header section ends -->
+
+
+<!-- spotlight section -->
+
+
+ 
+    
+        <div class="main-section">
+            <div id="spotlight">
+                <div class="player">
+                    <video autoplay muted loop poster="/static/web/images/spotlight.png" class="player__video viewer" src="media/download.mp4"></video>
+
+                    <div class="wrapper">
+                        <div class="player__controls">
+                            <button class="player__button toggle" title="Toggle Play">
+                                <div class="image-box1 playButton"><img src="fonts/pause.svg" alt="Icon"></div>
+                                <div class="image-box1 pauseButton hiddenClass hideButton"><img src="fonts/Polygon%203.svg" alt="Icon"></div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    
+
+
+<!-- spotlight section end******************************* -->
+
+<!-- about section  -->
+
+    
+        <div id="about" style="background-image: url(images/aboutback.png);background-repeat: no-repeat;background-position:right top ; background-size: contain">
+            <div class="wrapper">
+                <div class="container">
+                    <div class="aboutLeft">
+                        <div class="leftFirst">
+                            <!-- <a href="#" class="button blindButton">LEARN MORE</a> -->
+                            
+                                <div class="image-box widthClass article-container">
+                                    <div class="article-img-holder" style="background: url(images/about1_WYzFf6u.png );background-repeat:background-repeat: no-repeat;background-position: center; background-size: cover;"></div>
+                                </div>
+                            
+                        </div>
+                        <div class="leftSecond ">
+                            
+                                <div class="image-box widthClass article-container">
+                                <div class="article-img-holder" style="background: url(images/about1_GK3zSpu.png );background-repeat:background-repeat: no-repeat;background-position: center; background-size: cover;"></div>
+                                </div>
+                            
+                            <a style="opacity: 0;pointer-events: none" class="button gradientClass">LEARN MORE</a>
+                        </div>
+                        <div class="middle">
+                            <div class="round1">
+                                <div class="round2">
+                                    <img src="fonts/round.svg" alt="Icon">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aboutRight">
+                        <div class="title-box">
+                            <h5>ABOUT US </h5>
+                            <!-- <h2>Your <span class="gradientColor">trust</span> is our</h2>
+                            <h2>Responsibility</span></h2> -->
+                            <h2>Your trust is our <span class="gradientColor">Responsibility</span></h2>
+                        </div>
+                        <p></p><p>Stikcon founded by Top-notch technical and business acumen with a track record in AEC(Architectural Engineering and Construction) Industry</p>
+
+<p><br>
+ </p>
+
+<p>Our team includes architects, designers,Civil Engineers, MEP engineers, and data scientists who are joining forces to re-invent modern architecture Design, Construction project managment and We increase the efficiency of construction projects through modern, user-friendly solutions.</p><p></p>
+                        <a href="/about-page/" class="button gradientClass">LEARN MORE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+<!-- about end******************************* -->
+ <!-- services section  -->
+
+    <div id="services">
+        <div class="wrapper">
+            <div class="container">
+                <div class="title-box">
+                    <h5>what we do</h5>
+                    <h2>Our <span class="gradientColor">Services</span></h2>
+                </div>
+                <div class="cards">
+                    
+                    <div class="card">
+                        
+                            <div class="image-box">
+                                <img src="fonts/Component_2_N8ucoFX.svg" alt="Icon">
+                            </div>
+                         
+                        <h4>Prefab Technology</h4>
+                        <div class="get_list_style">
+                            <p></p><p>Project Stikcon Private Limited is a leading pre-fabrication unit based in Kochi, Kerala. We have over 20 years of experience …</p>
+                        </div>
+                       
+                        <div class="borderlink">
+                            <a class="btn-primary" href="/services-page/">Learn More <span class="colorLine"></span></a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        
+                            <div class="image-box">
+                                <img src="fonts/Component_3_PitdNKE.svg" alt="Icon">
+                            </div>
+                         
+                        <h4>Design and Build</h4>
+                        <div class="get_list_style">
+                            <p></p><p>Multidisciplinary in-house engineering services, Detailed design package Includes concept design, 3D design and renderings and layouts, detailed drawings, bill of …</p>
+                        </div>
+                       
+                        <div class="borderlink">
+                            <a class="btn-primary" href="/services-page/">Learn More <span class="colorLine"></span></a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        
+                            <div class="image-box">
+                                <img src="fonts/Component_4_hI46uc5.svg" alt="Icon">
+                            </div>
+                         
+                        <h4>Turn Key Projects</h4>
+                        <div class="get_list_style">
+                            <p></p><p>We can handle every detail of the project, Design, including bidding, permitting, subcontractor selection, managing resources, site supervision, all with …</p>
+                        </div>
+                       
+                        <div class="borderlink">
+                            <a class="btn-primary" href="/services-page/">Learn More <span class="colorLine"></span></a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        
+                            <div class="image-box">
+                                <img src="fonts/Component_1_HF5bmOc.svg" alt="Icon">
+                            </div>
+                         
+                        <h4>VR support for Architectural design and Construction projects</h4>
+                        <div class="get_list_style">
+                            <p></p><ul> <li>We provide Virtual reality supports for your any Construction projects it will help you </li> <li>Shorten design review cycles</li> <li>90% …<p></p>
+                        </li></ul></div>
+                       
+                        <div class="borderlink">
+                            <a class="btn-primary" href="/services-page/">Learn More <span class="colorLine"></span></a>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="learnMoreMain">
+                    <a href="/services-page/" class="button gradientClass mainButton">LEARN MORE</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- services end******************************* -->
+<!-- testimonials section  -->
+
+<!-- customer end******************************* -->
+<div id="videoSection">
+    <div class="wrapper">
+        <div class="container">
+            <div class="left">
+                <div class="contents">
+                    <h5>GET A QUOTE</h5>
+                    <h2>Let’s <span class="gradientColor">Talk</span></h2>
+                    <p>We are here to get in touch with you,Knock us anytime.</p>
+                    <form action class="ajax reset redirect" method="post">
+                        <input type="hidden" name="csrfmiddlewaretoken" value="30dcTO1Js092rmQ8nqJUuO3sAIRq69yhlpd6YZz8nEGJQiuUv0tJxBzuZA4B89tz">
+                        <div class="inputBox">
+                            <input type="text" name="email" class="email form-control  btn" placeholder="Email ID" maxlength="254" required id="id_email">
+                        </div>
+                        <div class="inputBox">
+                            <input type="text" name="message" class=" form-control  btn" placeholder="Message" required id="id_message">
+                        </div>
+                        <button class="btn button gradientClass" type="submit"> SUBMIT</button>
+                    </form>
+                    
+                </div>
+            </div>
+            <div class="right">
+                <div class="player2">
+                    <div class="player-controls">
+                        <button class="player__button toggle1" title>
+                            <div class="image-box playButton hideButton"><img src="fonts/Polygon%203.svg" alt="Icon"></div>
+                            <div class="image-box pauseButton  "><img src="fonts/pause.svg" alt="Icon"></div>
+                        </button>
+                    </div>
+                    
+                        
+                            <video autoplay loop muted poster="/static/web/images/spotlight.png" class="viewer1" src="media/TechiesPark.mp4" type="video/mp4">
+                                <source src="images/spotlight.png" type="video/ogg">
+                            </video>
+                        
+                        
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- main-section end******************************* -->
+
+<!-- footer section  -->
+<footer style="background-image: url(images/footerback.png);background-repeat: no-repeat;background-position: center; background-size: cover;">
+    <div class="overlay">
+    </div>
+    <div class="wrapper">
+        <div class="container">
+            <div class="upArrow">
+                <div class="image-box">
+                    <a href="#">
+                        <img src="fonts/-_.svg" alt="Icon">
+                    </a>
+                </div>
+            </div>
+            <div class="footercol col1">
+                <h1>
+                    <a href="/"><img src="fonts/logo.svg" alt="Icon"></a>
+                </h1>
+                
+                    
+                        
+                            <ul>
+                                <li><a class="socialIcon" target="_blank" href="https://www.facebook.com/Stikcon-101977275660130/"><img src="fonts/facebook.svg" alt="Icon"></a></li>
+                                <li><a class="socialIcon" target="_blank" href="https://www.instagram.com/stikcon/?hl=en"><img src="fonts/insta.svg" alt="Icon"></a></li>
+                                <li><a class="socialIcon" target="_blank" href="https://in.linkedin.com/company/stikcon"><img src="fonts/linkidn.svg" alt="Icon"></a></li>
+                                <li><a class="socialIcon" target="_blank" href="https://twitter.com/stikconpmc/"><img src="fonts/twitter.svg" alt="Icon"></a></li>
+                            </ul>
+                        
+                    
+
+            </div>
+            <div class="footercol col2 ">
+                <h6>Quick Links</h6>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about-page/">About Us</a></li>
+                    <li><a href="/services-page/">Services</a></li>
+                    <li><a href="/careers/">Career</a></li>
+                    <li><a href="/blog-page/">Blogs</a></li>
+                    <li><a href="/policy-page/">Privacy Policy</a></li>
+                    <li><a href="/terms-and-conditions/">Terms & Conditions</a></li>
+                    <li><a href="/cancellation-refund/">Cancellation & Refund</a></li>
+                    <li><a href="/contact-page/">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footercol col3">
+                <h6>Social Media</h6>
+                <ul>
+                    
+                        
+                            <li><a href="https://www.facebook.com/Stikcon-101977275660130/">Facebook</a></li>
+                            <li><a href="https://www.instagram.com/stikcon/?hl=en">Instagram</a></li>
+                            <li><a href="https://in.linkedin.com/company/stikcon">Linkedin</a></li>
+                            <li><a href="https://twitter.com/stikconpmc/">Twitter</a></li>
+                        
+                    
+                </ul>
+            </div>
+            <div class="footercol col4">
+                
+                <h6>Contact Us</h6>
+                
+                    
+                        <div class="footerContact">
+                            <div class="contactMain">
+                                <p>Phone</p>
+                                <a href="tel:+91 8589998952">+91 8589998952</a>
+                            </div>
+                            <div class="contactMain">
+                                <p>Email</p>
+                                <a href="mailto:business@stikcon.com">business@stikcon.com</a>
+                            </div>
+                            <div class="contactMain">
+                                <p>Office Address</p>
+                                <a href="#" class="adressData">8th Floor, Bizcospaces,Infra Futura Building,Seaport Airport Road, Kakkanad, Kochi, Kerala-682021</a>
+                            </div>
+                        </div>
+                    
+                
+            </div>
+
+            <div class="footercol col5">
+                <h6>Contact Us</h6>
+                <p>We will reach you as soon as possible,Let’s share some thoughts.</p>
+                <div class="enquiry">
+                    <form action="/subscribe/" method="post" class="ajax" novalidate>
+                        <input type="hidden" name="csrfmiddlewaretoken" value="30dcTO1Js092rmQ8nqJUuO3sAIRq69yhlpd6YZz8nEGJQiuUv0tJxBzuZA4B89tz">
+                        <div class="containerSmall">
+                            <div class="row">
+                                <input placeholder="Your email" type="email" name="email">
+                            </div>
+                            <button type="submit" class="button gradientClass" style="padding: 10px; width: 45px;"><img src="fonts/BUTTON.svg" alt="Icon" style="width:100%; display:block"></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+   
+    <!-- sticky whatsapp  -->
+    <div class="bot-whatsapp">
+        <div class="whatsapp sameStyle">
+            <a href="https://wa.me/+918589998952" class="image-box"><img src="fonts/Vector.svg" alt="Icon"></a>
+        </div>
+    </div>
+    <!-- sticky whatsapp ends  -->
+</footer>
+
+<script type="text/javascript">
+    (function(I, L, T, i, c, k, s) {if(I.iticks) return;I.iticks = {host:c, settings:s, clientId:k, cdn:L, queue:[]};var h = T.head || T.documentElement;var e = T.createElement(i);var l = I.location;e.async = true;e.src = (L||c)+'/client/inject-v2.min.js';h.insertBefore(e, h.firstChild);I.iticks.call = function(a, b) {I.iticks.queue.push([a, b]);};})(window, 'https://cdn-v1.intelliticks.com/prod/common', document, 'script', 'https://app.intelliticks.com', 'gPdJLYRKWhh9bWAQe_c', {});
+    // otpchange
+</script>
+<!-- chat box ends  -->
+<!-- scripts file -->
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/slick.min.js" type="text/javascript"></script>
+<!-- <script src="/static/web/js/slick.js" type="text/javascript"></script> -->
+<script src="js/player.js" type="text/javascript"></script>
+<script src="js/script.js" type="text/javascript"></script>
+<script src="js/progressBar.js" type="text/javascript"></script>
+<script src="js/sweetalert.min.js" type="text/javascript"></script>
+<script src="js/sweetalert2.min.js" type="text/javascript"></script>
+<script src="js/ad-js.js" type="text/javascript"></script>
+<script src="js/c5afe30162.js" crossorigin="anonymous"></script>
+
+<!-- chat box  -->
+<script type="text/javascript">
+    $(".inputOtp").on("keyup keypress", function(e){
+        if (e.keyCode == 8){
+            $(this).prev().select().focus()
+        }else{
+            let id = $(this).attr("id")
+            this.value = this.value.replace(/[^0-9]/g,'');
+        
+            if(this.value != ""){
+                $(`#${id}+input`).focus()
+            }
+        }
+    })
+</script>
+
+
+
+
+</body></html>
